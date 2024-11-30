@@ -6,23 +6,42 @@
 	<title>MovieProject</title>
 </head>
 <body>
+<h1 th:text="${newMovieString}" />
+
+<form method="post" th:object="${newMovie}" th:action="@{/addNew}" >
+	<div class="form-group">
+		<label>
+			<input type="text"
+			       th:field="*{title}"
+			       name="movieTitle"
+			       placeholder="Movie Title"/>
+		</label>
+	</div>
+
+	<div class="form-group">
+		<label>
+			<input type="number"
+			       th:field="*{year}"
+			       name="year"
+			       placeholder="1987"/>
+		</label>
+	</div>
+
+	<div class="form-group">
+		<button type="submit"
+		        th:text="${addNewButtonText}">
+		</button>
+	</div>
+</form>
+
+<br>
+<div>
+	<a href="/" th:text="${backString}"/>
+</div>
+<br>
 <div>
 	<a href="?lang=de">Deutsch</a>
 	<a href="?lang=en">English</a>
 </div>
-
-
-<form method="post" th:object="${newMovie}" th:action="@{/addNew}">
-	<label>
-		<input type="text" th:field="*{title}" name="movieTitle" />
-	</label>
-	<label>
-		<input type="number" th:field="*{year}" name="year" placeholder="1987"/>
-	</label>
-	<button type="submit" th:text="${addNewButtonText}"></button>
-</form>
-
-
-<a href="/" th:text="${backString}"/>
 </body>
 </html>

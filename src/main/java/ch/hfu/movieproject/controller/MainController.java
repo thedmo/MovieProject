@@ -41,13 +41,13 @@ public class MainController {
     @GetMapping(value = "/", produces = "text/html; charset=UTF-8; lang=DE")
     public String startPage(Model model, Locale locale) {
         String title = messageSource.getMessage("title", null, locale);
-        String newMovie = messageSource.getMessage("newMovie", null, locale);
+        model.addAttribute("title", title);
+
+        String newMovieString = messageSource.getMessage("newMovieString", null, locale);
+        model.addAttribute("newMovie", newMovieString);
 
         List<Movie> movieList = movieService.getAllMovies();
-
         model.addAttribute("movies", movieList);
-        model.addAttribute("title", title);
-        model.addAttribute("newMovie", newMovie);
 
         return "Index";
     }

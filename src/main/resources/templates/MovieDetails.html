@@ -6,17 +6,21 @@
 	<title>MovieProject</title>
 </head>
 <body>
+<h1 th:text="${movie.title}"></h1>
+<h2 th:text="${movie.year}"></h2>
+
+<h3 th:text="${introductionTitleString}"></h3>
+<p th:text="${introduction}"/>
+
+
+<br>
+<div>
+	<a href="/" th:text="${backString}"/>
+</div>
+<br>
 <div>
 	<a href="?lang=de">Deutsch</a>
 	<a href="?lang=en">English</a>
 </div>
-
-<h1 th:text="${movie.title}"></h1>
-<h2 th:text="${movie.year}"></h2>
-
-<h3 >Zusammenfassung todo: locale </h3>
-<p th:text="${introduction}"/>
-
-<a href="/" th:text="${backString}"/>
 </body>
 </html>

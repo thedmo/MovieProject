@@ -49,6 +49,9 @@ public class NewMovieFormController {
         String addNewButtonText = messageSource.getMessage("addNewMovieText", null, locale);
         model.addAttribute("addNewButtonText", addNewButtonText);
 
+        String newMovieString = messageSource.getMessage("newMovieString", null, locale);
+        model.addAttribute("newMovieString", newMovieString);
+
         model.addAttribute("newMovie", new Movie());
 
         return "NewMovieForm";

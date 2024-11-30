@@ -24,6 +24,7 @@ public class MovieServiceImpl implements MovieService {
         addMovie(new Movie("Big Stan", 2007));
         addMovie(new Movie("Yes Man", 2008));
         addMovie(new Movie("Free Solo", 2018));
+        addMovie(new Movie("The Godfather", 1972));
     }
 
     @Override

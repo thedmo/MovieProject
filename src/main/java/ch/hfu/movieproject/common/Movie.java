@@ -18,6 +18,14 @@ public class Movie {
         return year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }

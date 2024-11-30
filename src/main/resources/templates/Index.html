@@ -6,10 +6,6 @@ xmlns:th="http://www.thymeleaf.org">
     <title>MovieProject</title>
 </head>
 <body>
-<div>
-    <a href="?lang=de">Deutsch</a>
-    <a href="?lang=en">English</a>
-</div>
 <h1 th:text="${title}" />
 
 <table>
@@ -29,6 +25,15 @@ xmlns:th="http://www.thymeleaf.org">
 
 </table>
 
-<a href="/new" th:text="${newMovie}"/>
+<br>
+<div>
+	<a href="/new" th:text="${newMovie}"/>
+</div>
+
+<br>
+<div>
+	<a href="?lang=de">Deutsch</a>
+	<a href="?lang=en">English</a>
+</div>
 </body>
 </html>
