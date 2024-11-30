@@ -8,8 +8,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration class for OpenAI integration.
+ * Sets up the ChatGPT model with specific parameters.
+ */
 @Configuration
 public class OpenAiConfig {
+
+    /**
+     * Configures OpenAI chat options with specific model and temperature settings.
+     *
+     * @return OpenAiChatOptions configured for GPT-4
+     */
     @Bean
     public OpenAiChatOptions openAiChatOptions() {
         return OpenAiChatOptions
@@ -19,11 +29,15 @@ public class OpenAiConfig {
                 .build();
     }
 
-    @Value("${spring.ai.openai.api-key}")
-    private String apiKey;
-
+    /**
+     * Creates and configures the OpenAI chat model with API credentials.
+     *
+     * @param apiKey API key for OpenAI authentication
+     * @param options Configured chat options
+     * @return ChatModel instance for OpenAI interaction
+     */
     @Bean("OpenAi")
-    public ChatModel setChatModel( OpenAiChatOptions options) {
+    public ChatModel setChatModel(@Value("${spring.ai.openai.api-key}") String apiKey, OpenAiChatOptions options) {
         OpenAiApi api = new OpenAiApi("https://api.openai.com", apiKey);
         return new OpenAiChatModel(api, options);
     }

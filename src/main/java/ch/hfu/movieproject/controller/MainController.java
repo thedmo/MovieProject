@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Locale;
-
+/**
+ * Main controller handling the startpage of the movie application.
+ * Manages the display of movie listings and basic navigation.
+ */
 @Controller
 public class MainController {
 
@@ -28,6 +31,13 @@ public class MainController {
         this.movieService = movieService;
     }
 
+    /**
+     * Displays the start page with a list of all movies.
+     *
+     * @param model Model object for passing attributes to view
+     * @param locale Current locale for internationalization
+     * @return String template name for the index page
+     */
     @GetMapping(value = "/", produces = "text/html; charset=UTF-8; lang=DE")
     public String startPage(Model model, Locale locale) {
         String title = messageSource.getMessage("title", null, locale);
@@ -41,11 +51,4 @@ public class MainController {
 
         return "Index";
     }
-//
-//    @PostMapping("/add")
-//    public String startPagePost(Model model, Locale locale, HttpSession session) {
-//        String title = messageSource.getMessage("title", null, locale);
-//   Redirect zu /
-//    }
-
 }

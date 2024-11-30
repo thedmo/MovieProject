@@ -10,9 +10,19 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
+/**
+ * Configuration class for internationalization (i18n) settings.
+ * Handles locale resolution and changes for the application.
+ */
 @Configuration
 public class I18nConfig implements WebMvcConfigurer {
 
+    /**
+     * Configures the locale resolver to manage user locale preferences.
+     * Sets German as the default locale.
+     *
+     * @return LocaleResolver configured for session-based locale management
+     */
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
@@ -20,6 +30,12 @@ public class I18nConfig implements WebMvcConfigurer {
         return localeResolver;
     }
 
+
+    /**
+     * Creates an interceptor to handle locale changes via URL parameter.
+     *
+     * @return LocaleChangeInterceptor configured with "lang" parameter
+     */
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();

@@ -34,6 +34,7 @@ public class OpenAiMovieServiceImpl implements OpenAIMovieService {
                 .append("do not translate words, that are usually kept in their original language.")
                 .append(String.format("if there is no such movie, you can answer with: 'no information found about %s from %s' (translate, if applicable).", movie.getTitle(), movie.getYear()))
                 ;
+
         String promptString = sb.toString();
 
         String introduction = "";

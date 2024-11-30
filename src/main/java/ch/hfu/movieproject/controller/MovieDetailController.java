@@ -12,9 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import java.util.Locale;
 
+/**
+ * Controller responsible for handling individual movie detail views.
+ * Manages the display of detailed movie information and AI-generated introductions.
+ */
 @Controller
 public class MovieDetailController {
     private MessageSource messageSource;
@@ -45,6 +48,15 @@ public class MovieDetailController {
         this.movieDatabase = movieDatabaseImpl;
     }
 
+    /**
+     * Displays detailed information for a specific movie.
+     * Generates and caches movie introductions using AI if not already present.
+     *
+     * @param model Model object for passing attributes to view
+     * @param id Unique identifier of the movie
+     * @param locale Current locale for internationalization
+     * @return String template name for movie details or not found page
+     */
     @GetMapping("/{id}")
     public String showMovieDetails(Model model, @PathVariable int id, Locale locale) {
         String backString = messageSource.getMessage("backString", null, locale);

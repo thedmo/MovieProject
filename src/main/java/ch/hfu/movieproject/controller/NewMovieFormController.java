@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.util.Locale;
 
+/**
+ * Controller handling the creation of new movie entries.
+ * Manages the form display and submission for adding new movies.
+ */
 @Controller
 public class NewMovieFormController {
 
@@ -31,6 +34,13 @@ public class NewMovieFormController {
         return this;
     }
 
+    /**
+     * Displays the form for adding a new movie.
+     *
+     * @param model Model object for passing attributes to view
+     * @param locale Current locale for internationalization
+     * @return String template name for the new movie form
+     */
     @GetMapping("/new")
     public String startPage(Model model, Locale locale) {
         String backString = messageSource.getMessage("backString", null, locale);
@@ -44,6 +54,12 @@ public class NewMovieFormController {
         return "NewMovieForm";
     }
 
+    /**
+     * Processes the submission of a new movie.
+     *
+     * @param movie Movie object populated from form submission
+     * @return RedirectView redirecting to the index page
+     */
     @PostMapping("/addNew")
     public RedirectView addNewMovie(@ModelAttribute Movie movie) {
         movieService.addMovie(movie);
