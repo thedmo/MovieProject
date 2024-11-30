@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>MovieProject</title>
+</head>
+<body>
+<div>
+	<a href="?lang=de">Deutsch</a>
+	<a href="?lang=en">English</a>
+</div>
+
+<h1 th:text="${movie.title}"></h1>
+<h2 th:text="${movie.year}"></h2>
+
+<h3 >Zusammenfassung todo: locale </h3>
+<p th:text="${introduction}"/>
+
+<a href="/" th:text="${backString}"/>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieProject</title>
+</head>
+<body>
+<div>
+    <a href="?lang=de">Deutsch</a>
+    <a href="?lang=en">English</a>
+</div>
+<h1 th:text="${title}" />
+
+<table>
+
+	<tr>
+		<th>ID</th>
+		<th>Title</th>
+		<th>Year</th>
+	</tr>
+	<tr th:each="obj : ${movies}">
+		<td th:text="${obj.id}"/>
+		<td >
+			<a th:href="@{/{id}(id=${obj.id})}" th:text="${obj.title}"></a>
+		</td>
+		<td th:text="${obj.year}"/>
+	</tr>
+
+</table>
+
+<a href="/new" th:text="${newMovie}"/>
+</body>
+</html>

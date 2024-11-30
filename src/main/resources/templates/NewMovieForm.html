@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>MovieProject</title>
+</head>
+<body>
+<div>
+	<a href="?lang=de">Deutsch</a>
+	<a href="?lang=en">English</a>
+</div>
+
+
+<form method="post" th:object="${newMovie}" th:action="@{/addNew}">
+	<label>
+		<input type="text" th:field="*{title}" name="movieTitle" />
+	</label>
+	<label>
+		<input type="number" th:field="*{year}" name="year" placeholder="1987"/>
+	</label>
+	<button type="submit" th:text="${addNewButtonText}"></button>
+</form>
+
+
+<a href="/" th:text="${backString}"/>
+</body>
+</html>
